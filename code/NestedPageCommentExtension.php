@@ -1,21 +1,17 @@
 <?php
 
-class NestedPageCommentDecorator extends DataObjectDecorator{
+class NestedPageCommentExtension extends DataExtension{
 	
-	function extraStatics(){
-		return array(
-			'db' => array(
-				'Email' => 'Varchar'
-			),
-			'has_one' => array(
-				'ReplyTo' => 'PageComment'
-			),
-			'has_many' => array(
-				'Children' => 'PageComment'
-			)
-		);
-	}
-	
+	private static $db = array(
+		'Email' => 'Varchar'
+	);
+	private static $has_one = array(
+		'ReplyTo' => 'PageComment'
+	);
+	private static $has_many = array(
+		'Children' => 'PageComment'
+	);
+			
 	function GravatarHash(){
 		if($this->owner->Email)
 			return md5(strtolower(trim($this->owner->Email)));

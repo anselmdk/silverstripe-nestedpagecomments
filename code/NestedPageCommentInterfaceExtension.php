@@ -1,5 +1,5 @@
 <?php
-class NestedPageCommentInterfaceDecorator extends DataObjectDecorator{
+class NestedPageCommentInterfaceExtension extends DataExtension{
 	
 	static $order_comments_by = 'Created ASC';
 	
